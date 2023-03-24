@@ -1,7 +1,8 @@
 const logger = require("../Logger/winston-logger");
+const config = require("../configuration/config")
 
-const mailADMIN = "melina.senorans@gmail.com"
-//¿de donde viene la constante?
+const mailADMIN = config.ADMINMAIL;
+
 
 const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({

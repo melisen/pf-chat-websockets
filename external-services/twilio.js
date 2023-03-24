@@ -3,11 +3,11 @@ const twilio = require("twilio")
 const accountSid = process.env.ACCOUNTSIDTWILIO
 const authToken = process.env.AUTHTOKENTWILIO
 const client = twilio(accountSid, authToken)
+const config = require("../configuration/config")
 
 //TWILIO WHATSAPP
-const whatsappADMIN = 'whatsapp:+5491127204753'
-//¿de dónde saleel admin?
-const numeroSandbox = 'whatsapp:+14155238886'
+const whatsappADMIN = config.ADMINWHATSAPP;
+const numeroSandbox = config.NUMSANDBOX; 
 
 
 const SendOrderWhatsappToAdmin = async (user)=>{

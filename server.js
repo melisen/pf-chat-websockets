@@ -53,7 +53,7 @@ app.use(
       cookie: {
         httpOnly: false,
         secure: false,
-        maxAge: 600000, //10 min
+        maxAge: config.TIEMPOEXPIR,
       }
   }),
   secret: "secreto",
@@ -189,9 +189,11 @@ app.use('/api/productos', productosRouter);
 const adminRouter = require('./routes/admin.js');
 app.use('/api/admin', adminRouter);
 
-
 const MensajesRouter = require('./routes/mensajes.js');
 app.use('/chat', MensajesRouter);
+
+const configRouter = require('./routes/config.js');
+app.use('/config', configRouter);
 
 
 
