@@ -18,7 +18,6 @@ const {
   const postCategoryController = async (req, res)=>{
     const {category} = req.body;
     res.redirect(`/api/productos/${category}`)
-    res.status(200).json(category)
   }
 
   const filterByCategoryController = async (req, res)=>{
@@ -42,8 +41,13 @@ const {
         const {id} = req.params;
         const prod = await getProduct(id)
         const idcarrito = req.user.carritoactual
-        res.render("detalle-producto", {data:{idcarrito, prod}})
-        logger.log("info", "/api/productos/:category/:id - GET  getProductController")
+        if(!prod){
+          res.status(404).send('Producto no encontrado');
+          }else{
+            res.render("detalle-producto", {data:{idcarrito, prod}})
+            logger.log("info", "/api/productos/:category/:id - GET  getProductController")
+        }
+        
       }
     
     const keepShoppingController = async (req, res)=>{ 

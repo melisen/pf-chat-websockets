@@ -52,14 +52,19 @@ const filterByCategory = async (category)=>{
 
 const getProduct = async (id)=>{
     const producto = await DAOproductos.findById(id);
-    const prod = {
-    title: producto.title,
-    thumbnail: producto.thumbnail,
-    price: producto.price,
-    _id: id,
-    category:producto.category
+    if(producto){
+      const prod = {
+        title: producto.title,
+        thumbnail: producto.thumbnail,
+        price: producto.price,
+        _id: id,
+        category:producto.category
+        }
+        return prod
+    }else{
+      return false
     }
-    return prod
+    
 }
 
 const saveNewProd = async(objProd)=>{
