@@ -5,9 +5,7 @@ const DAOFactoryCarrito = require("../models/DAOs/carrito/DAOfactory-carrito")
 const DAOcarrito = new DAOFactoryCarrito(PERSISTENCIA)
 
 const {saveCartIdInUser, updateEmptyCartInUser, findUser} = require("./usuarios")
-const {SendOrderWhatsappToAdmin, sendOrderSMSToUser} = require("../external-services/twilio")
-const {sendOrderMailToAdmin, transporter} = require("../external-services/nodemailer");
-
+const saveShopOrderAndSend = require("../services/shop-orders")
 
 
 const createCart = async (username)=>{
@@ -64,9 +62,8 @@ const deleteProdFromCart = async (id, idprod)=>{
 const confirmOrder = async (username, carritoID)=>{
     const user = await findUser(username)
     const productos = await DAOcarrito.getProductList(carritoID);
-    const sendEmail = await sendOrderMailToAdmin(productos, user)
-    const sendWhatsapp = await SendOrderWhatsappToAdmin(user)
-    const sendSMS = await sendOrderSMSToUser(user, carritoID)
+    const guardarOrdenYMandarMensajes = await saveShopOrderAndSend(productos, user)
+    
 }
         
        module.exports = {

@@ -25,11 +25,11 @@ const SendOrderWhatsappToAdmin = async (user)=>{
 }
 
 //TWILIO SMS
-const sendOrderSMSToUser = async (user, carritoID)=>{
+const sendOrderSMSToUser = async (user, idCompra)=>{
 const telUSER = user.telefono;
     try {
         const message = await client.messages.create({
-          body: `Su pedido ${carritoID} ha sido recibido y se encuentra en proceso`,
+          body: `Su pedido ${idCompra} ha sido recibido y se encuentra en proceso`,
           from: '+12707137190',
           to: telUSER
         })

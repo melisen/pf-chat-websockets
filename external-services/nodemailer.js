@@ -14,17 +14,19 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const sendOrderMailToAdmin = async (productos, user)=>{
-  const listaPedido = productos.map( (item) => (
-    `<li> ${item.title}   $${item.price}   x   ${item.quantity} u.</li>`))
+const sendOrderMailToAdmin = async (productos, user, fecha, estado, orderNumber)=>{
+  const listaPedido = productos.map( item => `<li> ${item.title}   $${item.price}   x   ${item.quantity} u.</li>`).join(" ")
+
     const bodyPedido =  
     `<div>
     <p>Nuevo pedido de ${user.nombre} ( ${user.username} )</p>
     <p>Productos:</p>
     <ul>
-    <ul>
         ${listaPedido}
     </ul>
+    <p> Nro. Orden:  ${orderNumber} </p>
+    <p> Fecha: ${fecha} </p>
+    <p> Estado: ${estado} </p>
     </div>`
 
     const mailOptionsNuevoPedido = {

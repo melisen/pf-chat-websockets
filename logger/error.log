@@ -219,3 +219,9 @@
 {"level":"error","message":"User already exists"}
 {"level":"error","message":"password no coincide"}
 {"level":"error","message":"password no coincide"}
+{"level":"error","message":"no se pudo agregar producto al carrito"}
+{"level":"error","message":"no se pudo agregar producto al carrito"}
+{"level":"error","message":"no se pudo agregar producto al carrito"}
+{"level":"error","message":"no se pudo agregar producto al carrito"}
+{"level":"error","message":"no se pudo agregar producto al carrito"}
+{"level":"error","message":"no se pudo agregar producto al carrito"}
