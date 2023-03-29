@@ -20,8 +20,8 @@ const findUser = async (username)=>{
     telefono:usuario.telefono, 
     nombre:usuario.nombre, 
     apellido:usuario.apellido, 
-    avatar:usuario.avatar, 
-    edad:usuario.edad, 
+    //avatar:usuario.avatar, 
+    //edad:usuario.edad, 
     direccion:usuario.direccion,
     carritoactual: usuario.carritoactual
   }
@@ -33,9 +33,14 @@ const findUserById = async (id)=>{
   return usuario
 }
 
-const postLogin = async (username)=>{
+const postLogin = async (username, password, password2)=>{
   const user = await findUser(username)
-  return user
+  if(password === password2){
+    return user 
+  }else{
+    logger.log("error", "password no coincide")
+    return false;    
+  }  
 }
 
 const postSignup = async (user)=>{

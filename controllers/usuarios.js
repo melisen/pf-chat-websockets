@@ -20,10 +20,13 @@ const getLoginController = (req, res)=>{
   }
 
   const postLoginController = async (req, res)=>{
-  const { username, password } = req.user;
-  const user = await postLogin(username)
-  res.render("profileUser", { user});
-  logger.log("info", "/login - POST - render profileUser")
+  const { username} = req.user;
+  const {password, password2} = req.body;
+  const user = await postLogin(username, password, password2)
+  if(user){
+    res.render("profileUser", { user});
+    logger.log("info", "/login - POST - render profileUser")
+  }  
 }
 
 const getFailloginController = (req, res)=>{

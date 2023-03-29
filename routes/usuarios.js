@@ -17,16 +17,16 @@ const {
 
 
 
- usuariosRouter.get("/login", getLoginController);
+  usuariosRouter.get("/login", getLoginController);
 
   usuariosRouter.post("/login",
   passport.authenticate("login", { failureRedirect: "/api/usuarios/faillogin" }), postLoginController);
 
-usuariosRouter.get("/faillogin", getFailloginController);
+  usuariosRouter.get("/faillogin", getFailloginController);
 
-usuariosRouter.get("/signup", getSignupController);
+  usuariosRouter.get("/signup", getSignupController);
 
-usuariosRouter.post("/signup", passport.authenticate("signup", { failureRedirect: "/api/usuarios/failsignup" }),
+  usuariosRouter.post("/signup", passport.authenticate("signup", { failureRedirect: "/api/usuarios/failsignup" }),
   postSignupController);
 
 usuariosRouter.get("/failsignup", getFailsignupController);

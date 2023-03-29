@@ -215,3 +215,7 @@
 {"level":"error","message":"error al escuchar mensajes general socket.on( new_msg"}
 {"level":"error","message":"error en ver-mensajes-user"}
 {"level":"error","message":"error en ver-mensajes-user"}
+{"level":"error","message":"password no coincide"}
+{"level":"error","message":"User already exists"}
+{"level":"error","message":"password no coincide"}
+{"level":"error","message":"password no coincide"}
